@@ -1,8 +1,7 @@
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Person {
-    private Name name;
+public class Person extends Name {
     private String phoneNumber;
     private String emailAddress;
     private Address address;
@@ -10,8 +9,8 @@ public class Person {
     private LocalDate birthday;
 
 
-    public Person(Name name, String phoneNumber, String emailAddress, Address address, LocalDate birthday) {
-        this.name = name;
+    public Person ( String firstName, String middleName, String lastName, String phoneNumber, String emailAddress, Address address, LocalDate birthday)  {
+        super(firstName, middleName, lastName);
         this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
         this.address = address;
@@ -19,10 +18,6 @@ public class Person {
     }
 
     public Person() {
-    }
-
-    public Name getName() {
-        return name;
     }
 
     public String getPhoneNumber() {
@@ -39,10 +34,6 @@ public class Person {
 
     public LocalDate getBirthday() {
         return birthday;
-    }
-
-    public void setName(Name name) {
-        this.name = name;
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -65,16 +56,17 @@ public class Person {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Person person = (Person) o;
-        return Objects.equals(name, person.name) && Objects.equals(birthday, person.birthday);
+        return Objects.equals(phoneNumber, person.phoneNumber) && Objects.equals(emailAddress, person.emailAddress) && Objects.equals(address, person.address) && Objects.equals(birthday, person.birthday);
     }
 
     @Override
     public String toString() {
-        return ("Name: " + name.toString() +
+        return (super.toString() +
                 "\nPhone Number: " + phoneNumber +
                 "\nEmail Address: " + emailAddress +
-                "\nAddress: " + address.toString() +
+                "\nAddress: " + address +
                 "\nBirthday: " + birthday.toString());
     }
 }
