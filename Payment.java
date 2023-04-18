@@ -1,11 +1,11 @@
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 public class Payment {
-    protected LocalDate datePaid;
+    protected Date datePaid;
     protected double accountReceivable;
 
-    public Payment(LocalDate datePaid, double accountReceivable) {
+    public Payment(Date datePaid, double accountReceivable) {
         this.datePaid = datePaid;
         this.accountReceivable = accountReceivable;
     }
@@ -13,7 +13,7 @@ public class Payment {
     public Payment() {
     }
 
-    public LocalDate getDatePaid() {
+    public Date getDatePaid() {
         return datePaid;
     }
 
@@ -21,7 +21,7 @@ public class Payment {
         return accountReceivable;
     }
 
-    public void setDatePaid(LocalDate datePaid) {
+    public void setDatePaid(Date datePaid) {
         this.datePaid = datePaid;
     }
 

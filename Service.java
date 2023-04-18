@@ -1,12 +1,12 @@
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 public class Service {
     private Person person;
-    private LocalDate serviceStartDate;
-    private LocalDate serviceEndDate;
+    private Date serviceStartDate;
+    private Date serviceEndDate;
 
-    public Service(Person person, LocalDate serviceStartDate, LocalDate serviceEndDate) {
+    public Service(Person person, Date serviceStartDate, Date serviceEndDate) {
         this.person = person;
         this.serviceStartDate = serviceStartDate;
         this.serviceEndDate = serviceEndDate;
@@ -20,11 +20,11 @@ public class Service {
         return person;
     }
 
-    public LocalDate getServiceStartDate() {
+    public Date getServiceStartDate() {
         return serviceStartDate;
     }
 
-    public LocalDate getServiceEndDate() {
+    public Date getServiceEndDate() {
         return serviceEndDate;
     }
 
@@ -32,11 +32,11 @@ public class Service {
         this.person = person;
     }
 
-    public void setServiceStartDate(LocalDate serviceStartDate) {
+    public void setServiceStartDate(Date serviceStartDate) {
         this.serviceStartDate = serviceStartDate;
     }
 
-    public void setServiceEndDate(LocalDate serviceEndDate) {
+    public void setServiceEndDate(Date serviceEndDate) {
         this.serviceEndDate = serviceEndDate;
     }
 

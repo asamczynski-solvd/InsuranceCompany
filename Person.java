@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Date;
 
 public class Person {
     private Name name;
@@ -7,10 +8,10 @@ public class Person {
     private String emailAddress;
     private Address address;
 
-    private LocalDate birthday;
+    private Date birthday;
 
 
-    public Person(Name name, String phoneNumber, String emailAddress, Address address, LocalDate birthday) {
+    public Person(Name name, String phoneNumber, String emailAddress, Address address, Date birthday) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
@@ -37,7 +38,7 @@ public class Person {
         return address;
     }
 
-    public LocalDate getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
@@ -57,7 +58,7 @@ public class Person {
         this.address = address;
     }
 
-    public void setBirthday(LocalDate birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 

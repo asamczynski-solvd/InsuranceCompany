@@ -1,28 +1,28 @@
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Invoice extends Payment {
     private double accountPayable;
-    private LocalDate dateDue;
-    private LocalDate statementDate;
+    private Date dateDue;
+    private Date statementDate;
     private boolean isPaidInFull;
 
-    public Invoice(LocalDate datePaid, double accountReceivable, LocalDate statementDate) {
+    public Invoice(Date datePaid, double accountReceivable, Date statementDate) {
         super(datePaid, accountReceivable);
         this.statementDate = statementDate;
     }
 
-    public Invoice(double accountPayable, LocalDate statementDate) {
+    public Invoice(double accountPayable, Date statementDate) {
         super();
         this.accountPayable = accountPayable;
         this.statementDate = statementDate;
     }
 
-    public Invoice(double accountPayable, LocalDate statementDate, boolean isPaidInFull) {
+    public Invoice(double accountPayable, Date statementDate, boolean isPaidInFull) {
         this(accountPayable, statementDate);
         this.isPaidInFull = isPaidInFull;
     }
 
-    public Invoice(double accountPayable, LocalDate dateDue, LocalDate statementDate, boolean isPaidInFull) {
+    public Invoice(double accountPayable, Date dateDue, Date statementDate, boolean isPaidInFull) {
         this(accountPayable, statementDate, isPaidInFull);
         this.dateDue = dateDue;
     }
@@ -35,11 +35,11 @@ public class Invoice extends Payment {
         return accountPayable;
     }
 
-    public LocalDate getDateDue() {
+    public Date getDateDue() {
         return dateDue;
     }
 
-    public LocalDate getStatementDate() {
+    public Date getStatementDate() {
         return statementDate;
     }
 
@@ -51,11 +51,11 @@ public class Invoice extends Payment {
         this.accountPayable = accountPayable;
     }
 
-    public void setDateDue(LocalDate dateDue) {
+    public void setDateDue(Date dateDue) {
         this.dateDue = dateDue;
     }
 
-    public void setStatementDate(LocalDate statementDate) {
+    public void setStatementDate(Date statementDate) {
         this.statementDate = statementDate;
     }
 
