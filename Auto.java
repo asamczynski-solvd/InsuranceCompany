@@ -8,12 +8,12 @@ public class Auto {
     private int comprehensiveCoverage;
     private float premium;
 
-    public Auto(float deductible, int collisionCoverage, int medicalCoverage, int liabilityCoverage, int comprehensiveCoverage, float premium){
+    public Auto(float deductible, int collisionCoverage, int medicalCoverage, int liabilityCoverage, int comprehensiveCoverage, float premium) {
         this.deductible = deductible;
         this.collisionCoverage = collisionCoverage;
         this.medicalCoverage = medicalCoverage;
         this.liabilityCoverage = liabilityCoverage;
-        this.comprehensiveCoverage =comprehensiveCoverage;
+        this.comprehensiveCoverage = comprehensiveCoverage;
         this.premium = premium;
     }
 
@@ -80,6 +80,6 @@ public class Auto {
                 "\nmedicalCoverage: " + medicalCoverage +
                 "\nliabilityCoverage: " + liabilityCoverage +
                 "\ncomprehensiveCoverage: " + comprehensiveCoverage +
-                "\npremium: " + premium );
+                "\npremium: " + premium);
     }
 }

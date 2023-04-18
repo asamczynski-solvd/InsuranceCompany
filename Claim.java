@@ -1,13 +1,15 @@
 import java.util.Objects;
 
-public class Claim <T>{
+public class Claim<T> {
     private T claimType;
     private boolean isCovered;
-    public Claim(T claimType, boolean isCovered){
+
+    public Claim(T claimType, boolean isCovered) {
         this.claimType = claimType;
         this.isCovered = isCovered;
     }
-    public Claim(){
+
+    public Claim() {
 
     }
 

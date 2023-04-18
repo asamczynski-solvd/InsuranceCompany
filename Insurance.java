@@ -4,12 +4,14 @@ public class Insurance {
     private String memberID;
     private String groupID;
     private boolean isEmployee;
-    public Insurance(String memberID, String groupID, boolean isEmployee){
+
+    public Insurance(String memberID, String groupID, boolean isEmployee) {
         this.memberID = memberID;
         this.groupID = groupID;
         this.isEmployee = isEmployee;
     }
-    public Insurance(){
+
+    public Insurance() {
 
     }
 
@@ -49,6 +51,6 @@ public class Insurance {
     public String toString() {
         return ("memberID: " + memberID + '\'' +
                 "\ngroupID: " + groupID + '\'' +
-                "\nisEmployee: " + isEmployee );
+                "\nisEmployee: " + isEmployee);
     }
 }
