@@ -1,13 +1,18 @@
 import java.time.LocalDate;
-import java.util.Objects;
 
-public class Invoice {
+public class Invoice extends Payment {
     private double accountPayable;
     private LocalDate dateDue;
     private LocalDate statementDate;
     private boolean isPaidInFull;
 
+    public Invoice(LocalDate datePaid, double accountReceivable, LocalDate statementDate) {
+        super(datePaid, accountReceivable);
+        this.statementDate = statementDate;
+    }
+
     public Invoice(double accountPayable, LocalDate statementDate) {
+        super();
         this.accountPayable = accountPayable;
         this.statementDate = statementDate;
     }
@@ -20,6 +25,10 @@ public class Invoice {
     public Invoice(double accountPayable, LocalDate dateDue, LocalDate statementDate, boolean isPaidInFull) {
         this(accountPayable, statementDate, isPaidInFull);
         this.dateDue = dateDue;
+    }
+
+    public Invoice() {
+
     }
 
     public double getAccountPayable() {
@@ -54,13 +63,6 @@ public class Invoice {
         this.isPaidInFull = isPaidInFull;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Invoice invoice = (Invoice) o;
-        return Double.compare(invoice.accountPayable, accountPayable) == 0 && isPaidInFull == invoice.isPaidInFull && Objects.equals(dateDue, invoice.dateDue) && Objects.equals(statementDate, invoice.statementDate);
-    }
 
     @Override
     public String toString() {

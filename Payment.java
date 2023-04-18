@@ -2,8 +2,8 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Payment {
-    private LocalDate datePaid;
-    private double accountReceivable;
+    protected LocalDate datePaid;
+    protected double accountReceivable;
 
     public Payment(LocalDate datePaid, double accountReceivable) {
         this.datePaid = datePaid;
@@ -27,14 +27,6 @@ public class Payment {
 
     public void setAccountReceivable(double accountReceivable) {
         this.accountReceivable = accountReceivable;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Payment payment = (Payment) o;
-        return accountReceivable == payment.accountReceivable && Objects.equals(datePaid, payment.datePaid);
     }
 
     @Override

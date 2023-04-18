@@ -1,7 +1,8 @@
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Person extends Name {
+public class Person {
+    private Name name;
     private String phoneNumber;
     private String emailAddress;
     private Address address;
@@ -9,8 +10,8 @@ public class Person extends Name {
     private LocalDate birthday;
 
 
-    public Person ( String firstName, String middleName, String lastName, String phoneNumber, String emailAddress, Address address, LocalDate birthday)  {
-        super(firstName, middleName, lastName);
+    public Person(Name name, String phoneNumber, String emailAddress, Address address, LocalDate birthday) {
+        this.name = name;
         this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
         this.address = address;
@@ -18,6 +19,10 @@ public class Person extends Name {
     }
 
     public Person() {
+    }
+
+    public Name getName() {
+        return name;
     }
 
     public String getPhoneNumber() {
@@ -34,6 +39,10 @@ public class Person extends Name {
 
     public LocalDate getBirthday() {
         return birthday;
+    }
+
+    public void setName(Name name) {
+        this.name = name;
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -58,12 +67,12 @@ public class Person extends Name {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Person person = (Person) o;
-        return Objects.equals(phoneNumber, person.phoneNumber) && Objects.equals(emailAddress, person.emailAddress) && Objects.equals(address, person.address) && Objects.equals(birthday, person.birthday);
+        return Objects.equals(name, person.name) && Objects.equals(phoneNumber, person.phoneNumber) && Objects.equals(emailAddress, person.emailAddress) && Objects.equals(address, person.address) && Objects.equals(birthday, person.birthday);
     }
 
     @Override
     public String toString() {
-        return (super.toString() +
+        return ("Name: " + name +
                 "\nPhone Number: " + phoneNumber +
                 "\nEmail Address: " + emailAddress +
                 "\nAddress: " + address +

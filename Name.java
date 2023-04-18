@@ -6,10 +6,15 @@ public class Name {
     private String lastName;
     private String previousLastName;
 
-    public Name(String firstName, String middleName, String lastName) {
+    public Name(String firstName, String lastName) {
         this.firstName = firstName;
-        this.middleName = middleName;
         this.lastName = lastName;
+    }
+
+    public Name(String firstName, String middleName, String lastName) {
+        this(firstName, lastName);
+        this.middleName = middleName;
+
     }
 
     public Name(String firstName, String middleName, String lastName, String previousLastName) {
