@@ -1,9 +1,9 @@
 import java.util.Objects;
 
-public class Insurance {
-    private String memberID;
-    private String groupID;
-    private boolean isEmployee;
+public abstract class Insurance {
+    protected String memberID;
+    protected String groupID;
+    protected boolean isEmployee;
 
     public Insurance(String memberID, String groupID, boolean isEmployee) {
         this.memberID = memberID;
@@ -39,13 +39,7 @@ public class Insurance {
         isEmployee = employee;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Insurance insurance = (Insurance) o;
-        return isEmployee == insurance.isEmployee && Objects.equals(memberID, insurance.memberID) && Objects.equals(groupID, insurance.groupID);
-    }
+    public abstract float calculatePercentageCovered(float coinsurance);
 
     @Override
     public String toString() {

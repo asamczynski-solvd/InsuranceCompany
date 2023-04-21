@@ -12,10 +12,13 @@ public class Main {
         Date serviceStart = new Date(2023, 4, 18);
         Date serviceEnd = new Date(2024, 4, 18);
         Service service1 = new Service(person1, serviceStart, serviceEnd);
-        Auto auto1 = new Auto(800.00f, 100000, 50000, 50000, 100000, 1200.00f);
+        Auto auto1 = new Auto(800.00f, 100000, 50000, 50000, 100000, 1200.00f, 0.05f);
         Health health1 = new Health(3600.00f, 1000f, 50, 10, 0.10f);
         Claim autoClaim1 = new Claim(auto1, true);
-        Insurance insurance1 = new Insurance("200567123", "089123", false);
+        autoClaim1.setIsEmployee(true);
+        autoClaim1.setClaimType(auto1);
+        float percentCovered = autoClaim1.calculatePercentageCovered(auto1.getCoinsurance());
+        System.out.println("percentCovered: " + percentCovered);
         Invoice invoicePerson1 = new Invoice(new Date(2023, 4, 18), 37.65, new Date(2023, 3, 5));
 
     }

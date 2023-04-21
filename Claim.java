@@ -1,8 +1,8 @@
 import java.util.Objects;
 
-public class Claim<T> {
-    private T claimType;
-    private boolean isCovered;
+public class Claim<T> extends Insurance {
+    protected T claimType;
+    protected boolean isCovered;
 
     public Claim(T claimType, boolean isCovered) {
         this.claimType = claimType;
@@ -30,11 +30,8 @@ public class Claim<T> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Claim<?> claim = (Claim<?>) o;
-        return isCovered == claim.isCovered && Objects.equals(claimType, claim.claimType);
+    public float calculatePercentageCovered(float coinsurance) {
+        return 1.0f - coinsurance;
     }
 
     @Override

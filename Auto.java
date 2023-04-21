@@ -1,4 +1,4 @@
-import java.util.Objects;
+
 
 public class Auto {
     private float deductible;
@@ -7,14 +7,16 @@ public class Auto {
     private int liabilityCoverage;
     private int comprehensiveCoverage;
     private float premium;
+    private float coinsurance;
 
-    public Auto(float deductible, int collisionCoverage, int medicalCoverage, int liabilityCoverage, int comprehensiveCoverage, float premium) {
+    public Auto(float deductible, int collisionCoverage, int medicalCoverage, int liabilityCoverage, int comprehensiveCoverage, float premium, float coinsurance) {
         this.deductible = deductible;
         this.collisionCoverage = collisionCoverage;
         this.medicalCoverage = medicalCoverage;
         this.liabilityCoverage = liabilityCoverage;
         this.comprehensiveCoverage = comprehensiveCoverage;
         this.premium = premium;
+        this.coinsurance = coinsurance;
     }
 
     public float getDeductible() {
@@ -41,6 +43,10 @@ public class Auto {
         return premium;
     }
 
+    public float getCoinsurance() {
+        return coinsurance;
+    }
+
     public void setDeductible(float deductible) {
         this.deductible = deductible;
     }
@@ -63,6 +69,10 @@ public class Auto {
 
     public void setPremium(float premium) {
         this.premium = premium;
+    }
+
+    public void setCoinsurance(float coinsurance) {
+        this.coinsurance = coinsurance;
     }
 
     @Override
