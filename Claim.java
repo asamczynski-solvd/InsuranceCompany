@@ -1,42 +1,38 @@
-import java.util.Objects;
+import java.util.Calendar;
 
-public class Claim<T> extends Insurance {
-    protected T claimType;
+public class Claim<T extends Insurance> {
+    protected T insurancePlan;
     protected boolean isCovered;
 
-    public Claim(T claimType, boolean isCovered) {
-        this.claimType = claimType;
-        this.isCovered = isCovered;
+    public Claim(T insurancePlan) {
+        this.insurancePlan = insurancePlan;
+        checkIsCovered();
     }
 
-    public Claim() {
-
-    }
-
-    public T getClaimType() {
-        return claimType;
+    public T getInsurancePlan() {
+        return insurancePlan;
     }
 
     public boolean isCovered() {
         return isCovered;
     }
 
-    public void setClaimType(T claimType) {
-        this.claimType = claimType;
+    public void setInsurancePlan(T insurancePlan) {
+        this.insurancePlan = insurancePlan;
     }
 
-    public void setIsCovered(boolean isCovered) {
-        this.isCovered = isCovered;
-    }
-
-    @Override
-    public float calculatePercentageCovered(float coinsurance) {
-        return 1.0f - coinsurance;
+    public void checkIsCovered() {
+        Calendar today = Calendar.getInstance();
+        if (insurancePlan.getServiceEndDate().before(today.getTime())) {
+            isCovered = true;
+        } else {
+            isCovered = false;
+        }
     }
 
     @Override
     public String toString() {
-        return ("claimType: " + claimType +
+        return ("insurancePlan: " + insurancePlan +
                 "\nisCovered: " + isCovered);
     }
 }

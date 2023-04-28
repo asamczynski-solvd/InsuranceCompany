@@ -22,9 +22,6 @@ public class Name {
         this.previousLastName = previousLastName;
     }
 
-    public Name() {
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -62,7 +59,7 @@ public class Name {
         return (firstName + " " + lastName);
     }
 
-    public String printFullName(boolean showMiddleName, boolean showPreviousLastName) {
+    public String getFullName(boolean showMiddleName, boolean showPreviousLastName) {
         String FullName;
 
         if (showMiddleName && showPreviousLastName) {
@@ -72,7 +69,7 @@ public class Name {
         } else if (showMiddleName && !showPreviousLastName) {
             FullName = firstName + " " + middleName + " " + lastName;
         } else {
-            FullName = firstName + " " + lastName + ", " + previousLastName;
+            FullName = firstName + " " + lastName + ", previously: " + previousLastName;
         }
 
         return FullName;

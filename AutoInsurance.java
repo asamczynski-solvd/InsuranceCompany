@@ -1,6 +1,6 @@
+import java.util.Date;
 
-
-public class Auto {
+public class AutoInsurance extends Insurance {
     private float deductible;
     private int collisionCoverage;
     private int medicalCoverage;
@@ -9,7 +9,8 @@ public class Auto {
     private float premium;
     private float coinsurance;
 
-    public Auto(float deductible, int collisionCoverage, int medicalCoverage, int liabilityCoverage, int comprehensiveCoverage, float premium, float coinsurance) {
+    public AutoInsurance(Person person, Date serviceStartDate, String memberID, String groupID, boolean isEmployee, float deductible, int collisionCoverage, int medicalCoverage, int liabilityCoverage, int comprehensiveCoverage, float premium, float coinsurance) {
+        super(person, serviceStartDate, memberID, groupID, isEmployee);
         this.deductible = deductible;
         this.collisionCoverage = collisionCoverage;
         this.medicalCoverage = medicalCoverage;
@@ -76,16 +77,14 @@ public class Auto {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Auto auto = (Auto) o;
-        return Float.compare(auto.deductible, deductible) == 0 && collisionCoverage == auto.collisionCoverage && medicalCoverage == auto.medicalCoverage && liabilityCoverage == auto.liabilityCoverage && comprehensiveCoverage == auto.comprehensiveCoverage && Float.compare(auto.premium, premium) == 0;
+    public float percentageCovered() {
+        return 1.0f - coinsurance;
     }
 
     @Override
     public String toString() {
-        return ("deductible: " + deductible +
+        return (super.toString() +
+                "deductible: " + deductible +
                 "\ncollisionCoverage: " + collisionCoverage +
                 "\nmedicalCoverage: " + medicalCoverage +
                 "\nliabilityCoverage: " + liabilityCoverage +

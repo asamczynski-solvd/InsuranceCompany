@@ -1,15 +1,14 @@
+import java.util.Date;
 import java.util.Objects;
 
-public class Employee {
+public class Employee extends Person {
     private int salary;
     private String employeeID;
 
-    public Employee(int salary, String employeeID) {
+    public Employee(Name name, String phoneNumber, String emailAddress, Address address, Date birthday, int salary, String employeeID) {
+        super(name, phoneNumber, emailAddress, address, birthday);
         this.employeeID = employeeID;
         this.salary = salary;
-    }
-
-    public Employee() {
     }
 
     public int getSalary() {
@@ -38,6 +37,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return ("employeeID= " + employeeID + "\nsalary= " + salary);
+        return (super.toString() + "\nemployeeID= " + employeeID + "\nsalary= " + salary);
     }
 }

@@ -1,14 +1,12 @@
+import java.util.Date;
 import java.util.Objects;
 
-public class Customer {
+public class Customer extends Person {
     private String customerID;
 
-    public Customer(String customerID) {
+    public Customer(Name name, String phoneNumber, String emailAddress, Address address, Date birthday, String customerID) {
+        super(name, phoneNumber, emailAddress, address, birthday);
         this.customerID = customerID;
-    }
-
-    public Customer() {
-
     }
 
     public String getCustomerID() {
@@ -29,6 +27,6 @@ public class Customer {
 
     @Override
     public String toString() {
-        return customerID;
+        return super.toString() + "\ncustomerID= " + customerID;
     }
 }

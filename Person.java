@@ -7,9 +7,7 @@ public class Person {
     private String phoneNumber;
     private String emailAddress;
     private Address address;
-
     private Date birthday;
-
 
     public Person(Name name, String phoneNumber, String emailAddress, Address address, Date birthday) {
         this.name = name;
@@ -17,9 +15,6 @@ public class Person {
         this.emailAddress = emailAddress;
         this.address = address;
         this.birthday = birthday;
-    }
-
-    public Person() {
     }
 
     public Name getName() {

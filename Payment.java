@@ -10,9 +10,6 @@ public class Payment {
         this.accountReceivable = accountReceivable;
     }
 
-    public Payment() {
-    }
-
     public Date getDatePaid() {
         return datePaid;
     }

@@ -1,20 +1,19 @@
-public class Health {
+import java.util.Date;
+
+public class HealthInsurance extends Insurance {
     private float premium;
     private float deductible;
     private int copaySpecialist;
     private int copayPCP;
     private float coinsurance;
 
-    public Health(float premium, float deductible, int copaySpecialist, int copayPCP, float coinsurance) {
+    public HealthInsurance(Person person, Date serviceStartDate, String memberID, String groupID, boolean isEmployee, float premium, float deductible, int copaySpecialist, int copayPCP, float coinsurance) {
+        super(person, serviceStartDate, memberID, groupID, isEmployee);
         this.premium = premium;
         this.deductible = deductible;
         this.copaySpecialist = copaySpecialist;
         this.copayPCP = copayPCP;
         this.coinsurance = coinsurance;
-    }
-
-    public Health() {
-
     }
 
     public float getPremium() {
@@ -58,11 +57,9 @@ public class Health {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Health health = (Health) o;
-        return Float.compare(health.premium, premium) == 0 && Float.compare(health.deductible, deductible) == 0 && copaySpecialist == health.copaySpecialist && copayPCP == health.copayPCP && Float.compare(health.coinsurance, coinsurance) == 0;
+    public float percentageCovered() {
+        // automatically covers at least 5%
+        return 0.95f - coinsurance;
     }
 
     @Override
